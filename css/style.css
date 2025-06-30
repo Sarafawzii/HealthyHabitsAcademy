@@ -1,0 +1,232 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #f1fdf3;
+  color: #333;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+}
+
+/* Sidebar */
+.course-menu-container {
+  background-color: #def7ec;
+  padding: 20px;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+#toggleMenuBtn {
+  background-color: #78c2ad;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+  width: 100%;
+}
+
+/* Menu list */
+#courseMenu ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+#courseMenu ul li {
+  margin: 20px 0;
+}
+
+#courseMenu ul li a {
+  text-decoration: none;
+  color: #1f5c4d;
+  font-weight: 600;
+  display: block;
+  padding: 12px 15px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+#courseMenu ul li a:hover {
+  color: #33b17d;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#courseMenu ul li a.active {
+  background-color: #78c2ad;
+  color: white;
+}
+
+/* Collapsed sidebar behavior */
+.course-menu-container.collapsed {
+  width: 250px;
+}
+.course-menu-container.collapsed ul li:nth-child(n+5) {
+  display: none;
+}
+
+/* Main Content */
+.content {
+  flex: 1;
+  padding: 30px;
+  transition: margin-left 0.3s ease;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+}
+
+h1 {
+  font-size: 28px;
+  color: #2e7d59;
+}
+
+h2 {
+  margin-top: 30px;
+  font-size: 24px;
+  color: #444;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #d1f0db;
+  padding: 15px;
+  font-size: 14px;
+  color: #1b4332;
+}
+
+/* Quiz Styles */
+.quiz-question {
+  margin-top: 20px;
+}
+
+.quiz-options label {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quiz-options input[type="radio"] {
+  margin-right: 10px;
+}
+
+.quiz-options label:hover {
+  background-color: #e6f7f1;
+}
+
+.quiz-feedback {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Continue Button */
+.continue-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #78c2ad;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.continue-btn:hover {
+  background-color: #67b29e;
+}
+
+/* Map Styles */
+.map-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#searchBar {
+  width: 80%;
+  max-width: 500px;
+  padding: 10px;
+  border: 2px solid #90c695;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.map-container {
+  height: 70vh;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Tabs: Section Logic */
+.page-section {
+  display: none;
+}
+
+.page-section.active {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    margin-left: 0;
+    flex-direction: column;
+  }
+
+  .course-menu-container {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}

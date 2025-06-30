@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthy Habits Academy</title>
+  <link rel="icon" href="assets/healthy.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+<div class="container">
+  <!-- Sidebar -->
+  <aside class="course-menu-container" id="courseMenu">
+    <button id="toggleMenuBtn">☰ Course Menu</button>
+    <div class="logo-section">
+      <img src="assets/healthy.png" alt="Healthy Logo" class="logo" />
+      <h2>Healthy Habits</h2>
+    </div>
+    <ul>
+      <li><a href="#" class="menu-link active" data-target="welcome">🏠 Welcome</a></li>
+      <li><a href="#" class="menu-link" data-target="meals">🍽️ Meal Planning</a></li>
+      <li><a href="#" class="menu-link" data-target="workout">🏋️ Workout Basics</a></li>
+      <li><a href="#" class="menu-link" data-target="wellness">💧 Hydration & Sleep</a></li>
+      <li>
+        <a href="#" class="quiz-link">🧪 Quiz</a>
+        <ul class="sub-menu">
+          <li><a href="#" class="menu-link" data-target="quiz1">📝 Q1 - Nutrition Basics</a></li>
+          <li><a href="#" class="menu-link" data-target="quiz2">💪 Q2 - Fitness Fundamentals</a></li>
+          <li><a href="#" class="menu-link" data-target="quiz3">😴 Q3 - Wellness & Lifestyle</a></li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content">
+    <!-- Welcome Section -->
+    <section id="welcome" class="page-section active">
+      <div class="header-content">
+        <img src="assets/healthy.png" alt="Healthy Habits Logo" class="logo" />
+        <h1>Healthy Habits Academy</h1>
+      </div>
+      <p>Your journey to a better lifestyle starts here!</p>
+      <h2>Welcome!</h2>
+      <p>This site will guide you through the foundations of living healthy using simple tips, videos, and fun quizzes.</p>
+      <p>Click on any topic in the menu to get started 👈</p>
+    </section>
+
+    <!-- Meals Section -->
+    <section id="meals" class="page-section">
+      <h2>🍽️ Meal Planning Module</h2>
+      <div class="video-container">
+        <video width="100%" controls>
+          <source src="assets/mealV.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <!-- Workout Section -->
+    <section id="workout" class="page-section">
+      <h2>🏋️ Explore gym locations in Khobar</h2>
+      <div class="map-wrapper">
+        <input type="text" id="searchBar" placeholder="🔍 Search gyms in Khobar..." />
+        <div id="map" class="map-container"></div>
+      </div>
+    </section>
+
+    <!-- Wellness Section -->
+    <section id="wellness" class="page-section">
+      <h2>💧 Hydration & Sleep</h2>
+      <p>Tips and guides about sleep cycles, hydration timing, and how both affect your energy levels.</p>
+    </section>
+
+    <!-- Quizzes -->
+    <!-- Quizzes -->
+<section id="quiz1" class="page-section">
+  <h2>📑 Q1 - Nutrition Basics</h2>
+  <p><strong>Which of the following is a healthy source of protein?</strong></p>
+  <form class="quiz-form" data-next="quiz2">
+    <label><input type="radio" name="q1" value="a"> 🍬 Candy</label><br>
+    <label><input type="radio" name="q1" value="b"> 🍗 Chicken breast</label><br>
+    <label><input type="radio" name="q1" value="c"> 🍟 French fries</label><br>
+    <label><input type="radio" name="q1" value="d"> 🍩 Donuts</label><br>
+    <button type="submit">Submit Answer</button>
+    <p class="quiz-feedback"></p>
+    <button class="continue-btn" style="display: none;">Continue ➡️</button>
+  </form>
+</section>
+
+<section id="quiz2" class="page-section">
+  <h2>💪 Q2 - Fitness Fundamentals</h2>
+  <p><strong>Which activity is best for building cardiovascular endurance?</strong></p>
+  <form class="quiz-form" data-next="quiz3">
+    <label><input type="radio" name="q2" value="a"> 🏋️ Weightlifting</label><br>
+    <label><input type="radio" name="q2" value="b"> 🧘 Yoga</label><br>
+    <label><input type="radio" name="q2" value="c"> 🏃 Running</label><br>
+    <label><input type="radio" name="q2" value="d"> 🧗 Rock climbing</label><br>
+    <button type="submit">Submit Answer</button>
+    <p class="quiz-feedback"></p>
+    <button class="continue-btn" style="display: none;">Continue ➡️</button>
+  </form>
+</section>
+
+<section id="quiz3" class="page-section">
+  <h2>😴 Q3 - Wellness & Lifestyle</h2>
+  <p><strong>What is a recommended amount of sleep for adults per night?</strong></p>
+  <form class="quiz-form" data-next="welcome">
+    <label><input type="radio" name="q3" value="a"> 4-5 hours</label><br>
+    <label><input type="radio" name="q3" value="b"> 6-8 hours</label><br>
+    <label><input type="radio" name="q3" value="c"> 9-10 hours</label><br>
+    <label><input type="radio" name="q3" value="d"> More than 10 hours</label><br>
+    <button type="submit">Submit Answer</button>
+    <p class="quiz-feedback"></p>
+    <button class="continue-btn" style="display: none;">Continue ➡️</button>
+  </form>
+</section>
+
+    
+
+    <footer>
+      <p>Made with 💚 by Sara - 2025</p>
+    </footer>
+  </main>
+</div>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
