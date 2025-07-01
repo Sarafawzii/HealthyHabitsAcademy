@@ -23,6 +23,7 @@ if (toggleBtn && menu) {
   });
 }
 
+
 // === Quiz Sub-Menu Toggle ===
 const quizLink = document.querySelector('.quiz-link');
 if (quizLink) {
@@ -34,6 +35,8 @@ if (quizLink) {
     }
   });
 }
+
+
 
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.quiz-link') && !e.target.closest('.sub-menu')) {
@@ -143,4 +146,13 @@ quizForms.forEach(form => {
 document.addEventListener('DOMContentLoaded', () => {
   const hash = location.hash.replace("#", "") || "welcome";
   showSection(hash);
+});
+
+// === Global Continue Buttons ===
+const globalContinueBtns = document.querySelectorAll('.continue-btn.global');
+globalContinueBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const next = btn.getAttribute('data-next');
+    if (next) showSection(next);
+  });
 });

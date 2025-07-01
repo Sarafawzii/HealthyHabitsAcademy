@@ -11,12 +11,20 @@ body {
   color: #333;
 }
 
+html, body {
+  height: 100%;
+}
+
+
 /* Layout */
 .container {
   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin-left: 250px;
   transition: margin-left 0.3s ease;
 }
+
 
 /* Sidebar */
 .course-menu-container {
@@ -230,3 +238,32 @@ footer {
     margin-left: 0;
   }
 }
+
+/* === Dropdown Quiz Styling === */
+.dropdown-container {
+  display: none;
+  padding-left: 15px;
+  background-color: #d8f3dc;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  color: #333;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.dropdown-btn:hover {
+  background-color: #b7e4c7;
+}
+
+.continue-btn.global {
+  display: inline-block !important;
+}
+
+

@@ -23,14 +23,14 @@
       <li><a href="#" class="menu-link" data-target="meals">🍽️ Meal Planning</a></li>
       <li><a href="#" class="menu-link" data-target="workout">🏋️ Workout Basics</a></li>
       <li><a href="#" class="menu-link" data-target="wellness">💧 Hydration & Sleep</a></li>
-      <li>
-        <a href="#" class="quiz-link">🧪 Quiz</a>
-        <ul class="sub-menu">
-          <li><a href="#" class="menu-link" data-target="quiz1">📝 Q1 - Nutrition Basics</a></li>
-          <li><a href="#" class="menu-link" data-target="quiz2">💪 Q2 - Fitness Fundamentals</a></li>
-          <li><a href="#" class="menu-link" data-target="quiz3">😴 Q3 - Wellness & Lifestyle</a></li>
-        </ul>
-      </li>
+    <li class="dropdown">
+     <button class="dropdown-btn">🧪 Quiz</button>
+     <ul class="dropdown-container">
+     <li><a href="#" class="menu-link" data-target="quiz1">📝 Q1 - Nutrition Basics</a></li>
+     <li><a href="#" class="menu-link" data-target="quiz2">💪 Q2 - Fitness Fundamentals</a></li>
+     <li><a href="#" class="menu-link" data-target="quiz3">😴 Q3 - Wellness & Lifestyle</a></li>
+     </ul>
+    </li>
     </ul>
   </aside>
 
@@ -46,6 +46,7 @@
       <h2>Welcome!</h2>
       <p>This site will guide you through the foundations of living healthy using simple tips, videos, and fun quizzes.</p>
       <p>Click on any topic in the menu to get started 👈</p>
+      <button class="continue-btn global" data-next="meals">Continue ➡️</button>
     </section>
 
     <!-- Meals Section -->
@@ -57,6 +58,8 @@
           Your browser does not support the video tag.
         </video>
       </div>
+      <button class="continue-btn global" data-next="workout">Continue ➡️</button>
+
     </section>
 
     <!-- Workout Section -->
@@ -66,13 +69,33 @@
         <input type="text" id="searchBar" placeholder="🔍 Search gyms in Khobar..." />
         <div id="map" class="map-container"></div>
       </div>
+      <button class="continue-btn global" data-next="wellness">Continue ➡️</button>
     </section>
 
     <!-- Wellness Section -->
-    <section id="wellness" class="page-section">
-      <h2>💧 Hydration & Sleep</h2>
-      <p>Tips and guides about sleep cycles, hydration timing, and how both affect your energy levels.</p>
-    </section>
+<section id="wellness" class="page-section">
+  <h2>💧 Hydration & Sleep</h2>
+  <p>Proper hydration and sleep are essential pillars of a healthy lifestyle. Dehydration can affect your mood, focus, and energy, while good sleep helps with recovery, memory, and fat burning. Aim to drink at least 8 cups of water daily and get 7-9 hours of quality sleep per night.</p>
+
+  <ul>
+    <li><strong>💦 Hydration Tip:</strong> Start your morning with a glass of water to activate your metabolism.</li>
+    <li><strong>🛌 Sleep Tip:</strong> Avoid screen time at least 30 minutes before bedtime to improve sleep quality.</li>
+  </ul>
+
+  <div style="margin-top: 20px;">
+    <h3>🎥 Watch: Hydration & Sleep Guide</h3>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe src="https://www.youtube.com/embed/3h3RI0omte4" 
+              frameborder="0" 
+              allowfullscreen 
+              style="position: absolute; top:0; left:0; width:100%; height:100%;">
+      </iframe>
+    </div>
+  </div>
+  <button class="continue-btn global" data-next="quiz1">Continue ➡️</button>
+
+</section>
+
 
     <!-- Quizzes -->
     <!-- Quizzes -->
@@ -120,10 +143,11 @@
 
     
 
-    <footer>
+    
+  </main>
+  <footer>
       <p>Made with 💚 by Sara - 2025</p>
     </footer>
-  </main>
 </div>
 
 <!-- Scripts -->
