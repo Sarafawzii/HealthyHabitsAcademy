@@ -14,30 +14,34 @@
   <!-- Sidebar -->
   <aside class="course-menu-container" id="courseMenu">
     <button id="toggleMenuBtn">☰ Course Menu</button>
-    <div class="logo-section">
+    <a href="#" class="logo-section domain-link" data-target="welcome" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; cursor: pointer;">
       <img src="assets/healthy.png" alt="Healthy Logo" class="logo" />
-      <h2>Healthy Habits</h2>
-    </div>
+      <h2 style="margin: 0;">Healthy Habits</h2>
+    </a>
     <ul>
       <li><a href="#" class="menu-link active" data-target="welcome">🏠 Welcome</a></li>
       <li><a href="#" class="menu-link" data-target="meals">🍽️ Meal Planning</a></li>
       <li><a href="#" class="menu-link" data-target="workout">🏋️ Workout Basics</a></li>
       <li><a href="#" class="menu-link" data-target="wellness">💧 Hydration & Sleep</a></li>
     <li class="dropdown">
-     <button class="dropdown-btn">🧪 Quiz</button>
-     <ul class="dropdown-container">
-     <li><a href="#" class="menu-link" data-target="quiz1">📝 Q1 - Nutrition Basics</a></li>
-     <li><a href="#" class="menu-link" data-target="quiz2">💪 Q2 - Fitness Fundamentals</a></li>
-     <li><a href="#" class="menu-link" data-target="quiz3">😴 Q3 - Wellness & Lifestyle</a></li>
-     </ul>
+      <a href="#" class="menu-link dropdown-btn" data-target="quiz1">🧪 Quiz</a>
+      <ul class="dropdown-container">
+        <li><a href="#" class="menu-link" data-target="quiz1">📝 Q1 - Nutrition Basics</a></li>
+        <li><a href="#" class="menu-link" data-target="quiz2">💪 Q2 - Fitness Fundamentals</a></li>
+        <li><a href="#" class="menu-link" data-target="quiz3">😴 Q3 - Wellness & Lifestyle</a></li>
+      </ul>
     </li>
     </ul>
   </aside>
 
   <!-- Main Content -->
   <main class="content">
+    <div class="progress-bar"><div class="progress-bar-inner" id="progressBarInner"></div></div>
     <!-- Welcome Section -->
     <section id="welcome" class="page-section active">
+      <div class="welcome-bg-video">
+        <video class="welcome-video-bg" src="assets/welcoming.mp4" autoplay muted loop playsinline></video>
+      </div>
       <div class="header-content">
         <img src="assets/healthy.png" alt="Healthy Habits Logo" class="logo" />
         <h1>Healthy Habits Academy</h1>
@@ -46,27 +50,27 @@
       <h2>Welcome!</h2>
       <p>This site will guide you through the foundations of living healthy using simple tips, videos, and fun quizzes.</p>
       <p>Click on any topic in the menu to get started 👈</p>
-      <button class="continue-btn global" data-next="meals">Continue ➡️</button>
+      <div style="height: 32px;"></div>
+      <button class="continue-btn" data-next="meals">Continue ➡️</button>
     </section>
 
     <!-- Meals Section -->
     <section id="meals" class="page-section">
-      <h2>🍽️ Meal Planning Module</h2>
+      <h2>Meal Planning Module</h2>
       <div class="video-container">
-        <video width="100%" controls>
+        <video width="100%" controls autoplay muted loop>
           <source src="assets/mealV.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
-      <button class="continue-btn global" data-next="workout">Continue ➡️</button>
-
+      <button class="continue-btn" data-next="workout">Continue ➡️</button>
     </section>
 
     <!-- Workout Section -->
     <section id="workout" class="page-section">
-      <h2>🏋️ Explore gym locations in Khobar</h2>
+      <h2>Explore gym locations in Khobar</h2>
       <div class="map-wrapper">
-        <input type="text" id="searchBar" placeholder="🔍 Search gyms in Khobar..." />
+        <input type="text" id="searchBar" placeholder="Search gyms in Khobar..." />
         <div id="map" class="map-container"></div>
       </div>
       <button class="continue-btn global" data-next="wellness">Continue ➡️</button>
@@ -74,18 +78,23 @@
 
     <!-- Wellness Section -->
 <section id="wellness" class="page-section">
-  <h2>💧 Hydration & Sleep</h2>
+  <h2>Hydration & Sleep</h2>
   <p>Proper hydration and sleep are essential pillars of a healthy lifestyle. Dehydration can affect your mood, focus, and energy, while good sleep helps with recovery, memory, and fat burning. Aim to drink at least 8 cups of water daily and get 7-9 hours of quality sleep per night.</p>
 
+  <h3>Hydration Tip</h3>
   <ul>
-    <li><strong>💦 Hydration Tip:</strong> Start your morning with a glass of water to activate your metabolism.</li>
-    <li><strong>🛌 Sleep Tip:</strong> Avoid screen time at least 30 minutes before bedtime to improve sleep quality.</li>
+    <li>Start your morning with a glass of water to activate your metabolism.</li>
+  </ul>
+
+  <h3>Sleep Tip</h3>
+  <ul>
+    <li>Avoid screen time at least 30 minutes before bedtime to improve sleep quality.</li>
   </ul>
 
   <div style="margin-top: 20px;">
-    <h3>🎥 Watch: Hydration & Sleep Guide</h3>
+    <h3>Watch: Hydration & Sleep Guide</h3>
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe src="https://www.youtube.com/embed/3h3RI0omte4" 
+      <iframe src="https://www.youtube.com/embed/3h3RI0omte4?autoplay=1&mute=1" 
               frameborder="0" 
               allowfullscreen 
               style="position: absolute; top:0; left:0; width:100%; height:100%;">
@@ -93,53 +102,57 @@
     </div>
   </div>
   <button class="continue-btn global" data-next="quiz1">Continue ➡️</button>
-
 </section>
 
 
     <!-- Quizzes -->
-    <!-- Quizzes -->
-<section id="quiz1" class="page-section">
-  <h2>📑 Q1 - Nutrition Basics</h2>
-  <p><strong>Which of the following is a healthy source of protein?</strong></p>
-  <form class="quiz-form" data-next="quiz2">
-    <label><input type="radio" name="q1" value="a"> 🍬 Candy</label><br>
-    <label><input type="radio" name="q1" value="b"> 🍗 Chicken breast</label><br>
-    <label><input type="radio" name="q1" value="c"> 🍟 French fries</label><br>
-    <label><input type="radio" name="q1" value="d"> 🍩 Donuts</label><br>
-    <button type="submit">Submit Answer</button>
-    <p class="quiz-feedback"></p>
-    <button class="continue-btn" style="display: none;">Continue ➡️</button>
-  </form>
-</section>
+    <section id="quiz1" class="page-section">
+      <h2>📑 Q1 - Nutrition Basics</h2>
+      <p><strong>Which of the following is a healthy source of protein?</strong></p>
+      <form class="quiz-form" data-next="quiz2">
+        <div class="quiz-options">
+          <label><input type="radio" name="q1" value="a"> 🍬 Candy</label><br>
+          <label><input type="radio" name="q1" value="b"> 🍗 Chicken breast</label><br>
+          <label><input type="radio" name="q1" value="c"> 🍟 French fries</label><br>
+          <label><input type="radio" name="q1" value="d"> 🍩 Donuts</label><br>
+        </div>
+        <button type="submit">Submit Answer</button>
+        <p class="quiz-feedback"></p>
+        <button class="continue-btn" style="display: none;">Continue ➡️</button>
+      </form>
+    </section>
 
-<section id="quiz2" class="page-section">
-  <h2>💪 Q2 - Fitness Fundamentals</h2>
-  <p><strong>Which activity is best for building cardiovascular endurance?</strong></p>
-  <form class="quiz-form" data-next="quiz3">
-    <label><input type="radio" name="q2" value="a"> 🏋️ Weightlifting</label><br>
-    <label><input type="radio" name="q2" value="b"> 🧘 Yoga</label><br>
-    <label><input type="radio" name="q2" value="c"> 🏃 Running</label><br>
-    <label><input type="radio" name="q2" value="d"> 🧗 Rock climbing</label><br>
-    <button type="submit">Submit Answer</button>
-    <p class="quiz-feedback"></p>
-    <button class="continue-btn" style="display: none;">Continue ➡️</button>
-  </form>
-</section>
+    <section id="quiz2" class="page-section">
+      <h2>💪 Q2 - Fitness Fundamentals</h2>
+      <p><strong>Which activity is best for building cardiovascular endurance?</strong></p>
+      <form class="quiz-form" data-next="quiz3">
+        <div class="quiz-options">
+          <label><input type="radio" name="q2" value="a"> 🏋️ Weightlifting</label><br>
+          <label><input type="radio" name="q2" value="b"> 🧘 Yoga</label><br>
+          <label><input type="radio" name="q2" value="c"> 🏃 Running</label><br>
+          <label><input type="radio" name="q2" value="d"> 🧗 Rock climbing</label><br>
+        </div>
+        <button type="submit">Submit Answer</button>
+        <p class="quiz-feedback"></p>
+        <button class="continue-btn" style="display: none;">Continue ➡️</button>
+      </form>
+    </section>
 
-<section id="quiz3" class="page-section">
-  <h2>😴 Q3 - Wellness & Lifestyle</h2>
-  <p><strong>What is a recommended amount of sleep for adults per night?</strong></p>
-  <form class="quiz-form" data-next="welcome">
-    <label><input type="radio" name="q3" value="a"> 4-5 hours</label><br>
-    <label><input type="radio" name="q3" value="b"> 6-8 hours</label><br>
-    <label><input type="radio" name="q3" value="c"> 9-10 hours</label><br>
-    <label><input type="radio" name="q3" value="d"> More than 10 hours</label><br>
-    <button type="submit">Submit Answer</button>
-    <p class="quiz-feedback"></p>
-    <button class="continue-btn" style="display: none;">Continue ➡️</button>
-  </form>
-</section>
+    <section id="quiz3" class="page-section">
+      <h2>😴 Q3 - Wellness & Lifestyle</h2>
+      <p><strong>What is a recommended amount of sleep for adults per night?</strong></p>
+      <form class="quiz-form" data-next="welcome">
+        <div class="quiz-options">
+          <label><input type="radio" name="q3" value="a"> 4-5 hours</label><br>
+          <label><input type="radio" name="q3" value="b"> 6-8 hours</label><br>
+          <label><input type="radio" name="q3" value="c"> 9-10 hours</label><br>
+          <label><input type="radio" name="q3" value="d"> More than 10 hours</label><br>
+        </div>
+        <button type="submit">Submit Answer</button>
+        <p class="quiz-feedback"></p>
+        <button class="continue-btn" style="display: none;">Continue ➡️</button>
+      </form>
+    </section>
 
     
 

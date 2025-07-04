@@ -51,12 +51,35 @@ const sections = document.querySelectorAll('.page-section');
 
 function showSection(targetId) {
   sections.forEach(section => {
-    section.style.display = section.id === targetId ? 'block' : 'none';
+    if (section.id === targetId) {
+      section.style.display = 'block';
+      section.classList.add('active');
+    } else {
+      section.style.display = 'none';
+      section.classList.remove('active');
+    }
   });
   menuLinks.forEach(link => {
     link.classList.toggle('active', link.getAttribute('data-target') === targetId);
   });
   history.replaceState(null, "", "#" + targetId); // update URL hash
+
+  // Progress bar logic
+  const progressBar = document.getElementById('progressBarInner');
+  if (progressBar) {
+    let progress = 0;
+    switch(targetId) {
+      case 'welcome': progress = 0; break;
+      case 'meals': progress = 25; break;
+      case 'workout': progress = 50; break;
+      case 'wellness': progress = 75; break;
+      case 'quiz1':
+      case 'quiz2':
+      case 'quiz3': progress = 100; break;
+      default: progress = 0;
+    }
+    progressBar.style.width = progress + '%';
+  }
 }
 
 menuLinks.forEach(link => {
@@ -102,12 +125,25 @@ if (mapElement) {
 // === Quiz Functionality ===
 const quizForms = document.querySelectorAll('.quiz-form');
 quizForms.forEach(form => {
+  const optionsDiv = form.querySelector('.quiz-options');
+  if (optionsDiv) {
+    const labels = optionsDiv.querySelectorAll('label');
+    labels.forEach(label => {
+      label.addEventListener('click', () => {
+        labels.forEach(l => l.classList.remove('selected', 'correct', 'incorrect'));
+        label.classList.add('selected');
+      });
+    });
+  }
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const feedback = form.querySelector('.quiz-feedback');
     const nextBtn = form.querySelector('.continue-btn');
     const selected = form.querySelector('input[type="radio"]:checked');
     const name = form.querySelector('input[type="radio"]').name;
+    const optionsDiv = form.querySelector('.quiz-options');
+    const labels = optionsDiv ? optionsDiv.querySelectorAll('label') : [];
 
     // correct answers
     const correctAnswers = {
@@ -116,12 +152,23 @@ quizForms.forEach(form => {
       q3: "b"
     };
 
+    labels.forEach(l => l.classList.remove('correct', 'incorrect'));
+
     if (!selected) {
       feedback.textContent = "❗Please select an answer before submitting.";
       feedback.style.color = "red";
       nextBtn.style.display = "none";
       return;
     }
+
+    labels.forEach(label => {
+      const input = label.querySelector('input[type="radio"]');
+      if (input.value === correctAnswers[name]) {
+        label.classList.add('correct');
+      } else if (input.checked) {
+        label.classList.add('incorrect');
+      }
+    });
 
     if (selected.value === correctAnswers[name]) {
       feedback.textContent = "✅ Correct! Well done!";
@@ -148,11 +195,38 @@ document.addEventListener('DOMContentLoaded', () => {
   showSection(hash);
 });
 
-// === Global Continue Buttons ===
-const globalContinueBtns = document.querySelectorAll('.continue-btn.global');
-globalContinueBtns.forEach(btn => {
+// === Global Continue Buttons (improved) ===
+document.querySelectorAll('.continue-btn[data-next]').forEach(btn => {
   btn.addEventListener('click', () => {
     const next = btn.getAttribute('data-next');
     if (next) showSection(next);
   });
 });
+
+// === Quiz Dropdown Toggle and Navigation ===
+const quizDropdownBtn = document.querySelector('.dropdown-btn.menu-link');
+const quizDropdown = document.querySelector('.dropdown-container');
+if (quizDropdownBtn && quizDropdown) {
+  quizDropdownBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Show Q1 section
+    showSection('quiz1');
+    // Toggle dropdown
+    quizDropdown.style.display = quizDropdown.style.display === 'block' ? 'none' : 'block';
+  });
+  // Hide dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown')) {
+      quizDropdown.style.display = 'none';
+    }
+  });
+}
+
+// === Domain name/logo click navigates to welcome ===
+const domainLink = document.querySelector('.domain-link');
+if (domainLink) {
+  domainLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('welcome');
+  });
+}

@@ -7,8 +7,9 @@
 }
 
 body {
-  background-color: #f1fdf3;
+  background: linear-gradient(135deg, #e0f7fa 0%, #f1fdf3 100%);
   color: #333;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
 }
 
 html, body {
@@ -94,7 +95,7 @@ html, body {
 /* Main Content */
 .content {
   flex: 1;
-  padding: 30px;
+  padding: 40px 5vw;
   transition: margin-left 0.3s ease;
 }
 
@@ -108,6 +109,11 @@ html, body {
 .logo {
   width: 60px;
   height: auto;
+}
+
+h1, h2, h3 {
+  font-family: 'Segoe UI Semibold', 'Roboto', Arial, sans-serif;
+  letter-spacing: 0.5px;
 }
 
 h1 {
@@ -173,20 +179,30 @@ footer {
 }
 
 /* Continue Button */
-.continue-btn {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: #78c2ad;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
+.continue-btn, .continue-btn.global {
+  box-shadow: 0 2px 8px rgba(51, 177, 125, 0.12);
+  font-size: 18px;
+  padding: 12px 32px;
+  border-radius: 12px;
+  margin-top: 28px;
+  background: #33b17d;
+  color: #fff;
+  border: 2px solid #33b17d;
+  transition: background 0.2s, color 0.2s;
+}
+.continue-btn:hover, .continue-btn.global:hover {
+  background: #293e27;
+  color: #33b17d;
+  border: 2px solid #33b17d;
 }
 
-.continue-btn:hover {
-  background-color: #67b29e;
+.continue-btn:disabled, .continue-btn[disabled] {
+  opacity: 1 !important;
+  background: #33b17d !important;
+  color: #addb9e !important;
+  border: 2px solid #33b17d !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 
 /* Map Styles */
@@ -214,11 +230,67 @@ footer {
 
 /* Tabs: Section Logic */
 .page-section {
-  display: none;
+  background: linear-gradient(135deg, #e0f7fa 0%, #d1f0db 100%);
+  border-left: 8px solid #33b17d;
+  box-shadow: 0 6px 32px rgba(51, 177, 125, 0.10), 0 2px 8px rgba(51, 177, 125, 0.08);
+  padding: 40px 36px 36px 36px;
+  margin-bottom: 32px;
+  border-radius: 22px;
+  position: relative;
+  min-height: 350px;
+  animation: fadeIn 0.7s;
 }
 
-.page-section.active {
-  display: block;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.progress-bar-inner {
+  height: 100%;
+  background: linear-gradient(90deg, #33b17d 0%, #78c2ad 100%);
+  width: 0%;
+  border-radius: 6px;
+  transition: width 0.5s;
+}
+
+.page-section h2 {
+  color: #1b7f6a;
+  font-size: 2.1rem;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.page-section h3 {
+  color: #33b17d;
+  margin-top: 22px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.page-section ul {
+  margin-left: 24px;
+  margin-bottom: 12px;
+}
+
+.page-section li {
+  color: #155c4a;
+  font-size: 1.08rem;
+  margin-bottom: 6px;
+}
+
+.page-section iframe, .page-section video {
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(51, 177, 125, 0.13), 0 2px 8px rgba(51, 177, 125, 0.08);
+  border: 2px solid #33b17d;
 }
 
 /* Responsive */
@@ -262,8 +334,147 @@ footer {
   background-color: #b7e4c7;
 }
 
-.continue-btn.global {
-  display: inline-block !important;
+#courseMenu {
+  box-shadow: 2px 0 16px rgba(51, 177, 125, 0.08);
+  border-radius: 0 18px 18px 0;
+}
+
+#courseMenu ul li a, .dropdown-btn {
+  font-size: 18px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+#courseMenu ul li a.active, .dropdown-btn.active {
+  background: linear-gradient(90deg, #33b17d 0%, #78c2ad 100%);
+  color: #fff;
+}
+
+.video-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 36px 0 36px 0;
+}
+.welcome-video {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(51, 177, 125, 0.13), 0 2px 8px rgba(51, 177, 125, 0.08);
+  background: #f8fafc;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.welcome-video:hover {
+  box-shadow: 0 12px 48px rgba(51, 177, 125, 0.18), 0 4px 16px rgba(51, 177, 125, 0.12);
+  transform: scale(1.02);
+}
+
+.welcome-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 18px;
+}
+.welcome-video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6) blur(1px);
+}
+.welcome-bg-video::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 40, 60, 0.45);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 18px;
+}
+#welcome.page-section {
+  position: relative;
+  overflow: hidden;
+}
+#welcome .header-content,
+#welcome h2,
+#welcome p,
+#welcome button {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.28);
+}
+
+.welcome-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+#wellness.page-section {
+  background: linear-gradient(135deg, #e0f7fa 0%, #d1f0db 100%);
+  border-left: 8px solid #33b17d;
+  box-shadow: 0 6px 32px rgba(51, 177, 125, 0.10), 0 2px 8px rgba(51, 177, 125, 0.08);
+  padding: 40px 36px 36px 36px;
+  margin-bottom: 32px;
+  border-radius: 22px;
+  position: relative;
+}
+#wellness h2 {
+  color: #1b7f6a;
+  font-size: 2.1rem;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+#wellness h3 {
+  color: #33b17d;
+  margin-top: 22px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+#wellness ul {
+  margin-left: 24px;
+  margin-bottom: 12px;
+}
+#wellness li {
+  color: #155c4a;
+  font-size: 1.08rem;
+  margin-bottom: 6px;
+}
+#wellness iframe {
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(51, 177, 125, 0.13), 0 2px 8px rgba(51, 177, 125, 0.08);
+  border: 2px solid #33b17d;
+}
+
+.quiz-form button[type="submit"] {
+  background: #33b17d;
+  color: #fff;
+  border: 2px solid #33b17d;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 32px;
+  margin-top: 18px;
+  box-shadow: 0 2px 8px rgba(51, 177, 125, 0.12);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.quiz-form button[type="submit"]:hover {
+  background: #fff;
+  color: #33b17d;
+  border: 2px solid #33b17d;
 }
 
 
