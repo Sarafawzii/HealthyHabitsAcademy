@@ -1,0 +1,10 @@
+# Ignore system files
+desktop.ini
+Thumbs.db
+
+# Ignore IDE/workspace settings
+.vscode/
+
+# Ignore temporary files
+*.log
+*.tmp
